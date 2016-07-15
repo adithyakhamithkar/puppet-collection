@@ -17,5 +17,11 @@ sudo apt-get -y install puppet-agent
 #Make puppet-agent startup after reboot
 sudo /opt/puppetlabs/bin/puppet resource service puppet ensure=running enable=true
 
+#Fix puppet alias
+cd /etc/profile.d && sh puppet-agent.sh
+
+#Restart puppet-agent
+sudo /etc/init.d/puppet-agent restart
+
 echo "Done"
 #End

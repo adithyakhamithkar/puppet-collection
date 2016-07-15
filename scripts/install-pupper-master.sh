@@ -23,6 +23,9 @@ sudo /opt/puppetlabs/bin/puppet resource service puppetserver ensure=running ena
 #Autosign all hosts
 echo '*' > /etc/puppet/autosign.conf
 
+#Fix puppet alias
+cd /etc/profile.d && sh puppet-agent.sh
+
 #Restart puppetserver
 sudo /etc/init.d/puppetserver restart
 

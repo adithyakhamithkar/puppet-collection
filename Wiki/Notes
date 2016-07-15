@@ -2,7 +2,9 @@
 puppet agent --configprint environment
 
 #Adding an environment
-Edit this file /etc/puppet/puppet.conf on master
+Edit this file /etc/puppetlabs/puppet/puppet.conf on master and agent
+[main]
+environment=test-env
 
 #List the certs to be added
 sudo /opt/puppetlabs/bin/puppet cert list
