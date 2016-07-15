@@ -27,7 +27,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "test_box1" do |test_box1|
     test_box1.vm.box = "ubuntu/trusty64"
     test_box1.vm.network "private_network", ip: "192.168.33.11"
-    config.vm.provider "virtualbox" do |test_box|
+    config.vm.provider "virtualbox" do |test_box1|
       test_box.memory = 2048
       test_box.cpus = 2
     end
