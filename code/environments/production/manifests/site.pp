@@ -4,5 +4,7 @@ node default {
 }
 
 node puppet-agent {
+  include common
+  include ntp
   include nginx
 }
