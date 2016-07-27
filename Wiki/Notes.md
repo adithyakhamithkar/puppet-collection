@@ -17,3 +17,7 @@ sudo /opt/puppetlabs/bin/puppet cert sign <hostname>
 
 #Sign all request
 sudo /opt/puppetlabs/bin/puppet cert sign --all
+
+#Edit code directory in
+vim /etc/puppetlabs/puppet/puppet.conf
+vim /etc/puppetlabs/puppetserver/conf.d/puppetserver.conf
