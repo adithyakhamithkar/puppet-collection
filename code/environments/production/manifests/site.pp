@@ -7,4 +7,6 @@ node puppet-agent {
   include common
   include ntp
   include nginx
+  include mysql
+  include php
 }
