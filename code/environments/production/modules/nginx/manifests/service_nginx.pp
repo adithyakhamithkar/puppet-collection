@@ -6,7 +6,7 @@ class nginx::service_nginx inherits nginx {
     enable     => true,
     hasstatus  => true,
     hasrestart => true,
-    require => Package['nginx'],
+    require => [ Package['nginx'], Package['nginx-extras'] ],
   }
 
 }
