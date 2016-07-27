@@ -1,1 +1,1 @@
-#This Module will install and configure nginx
+#This Module will install and configure ntp
