@@ -16,8 +16,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "test_box" do |test_box|
     test_box.vm.box = "ubuntu/trusty64"
     test_box.vm.network "private_network", ip: "192.168.33.10"
-    #test_box.ssh.username = "vagrant"
-    #test_box.ssh.password = "vagrant"
+    #test_box.vm.synced_folder ".", "/vagrant"
     config.vm.provider "virtualbox" do |test_box|
       test_box.memory = 2048
       test_box.cpus = 2
@@ -27,9 +26,10 @@ Vagrant.configure(2) do |config|
   config.vm.define "test_box1" do |test_box1|
     test_box1.vm.box = "ubuntu/trusty64"
     test_box1.vm.network "private_network", ip: "192.168.33.11"
+    #test_box1.vm.synced_folder ".", "/vagrant"
     config.vm.provider "virtualbox" do |test_box1|
-      test_box.memory = 2048
-      test_box.cpus = 2
+      test_box1.memory = 2048
+      test_box1.cpus = 2
     end
   end
   # Run commission-new-server.yml playbook
@@ -62,7 +62,7 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
+  # config.vm.synced_folder "~/Personal/Projecnts/Puppet", "/vagrant"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.

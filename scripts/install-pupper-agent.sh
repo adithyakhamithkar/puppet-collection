@@ -21,7 +21,7 @@ sudo /opt/puppetlabs/bin/puppet resource service puppet ensure=running enable=tr
 cd /etc/profile.d && sh puppet-agent.sh
 
 #Restart puppet-agent
-sudo /etc/init.d/puppet-agent restart
+sudo /etc/init.d/puppet restart
 
 echo "Done"
 #End
