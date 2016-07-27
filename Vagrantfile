@@ -13,32 +13,27 @@ Vagrant.configure(2) do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   # test_box configuration
-  config.vm.define "test_box" do |test_box|
-    test_box.vm.box = "ubuntu/trusty64"
-    test_box.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.define "puppet_master" do |puppet_master|
+    puppet_master.vm.box = "ubuntu/trusty64"
+    puppet_master.vm.network "private_network", ip: "192.168.33.10"
+    puppet_master.vm.hostname = "puppet-master"
     #test_box.vm.synced_folder ".", "/vagrant"
-    config.vm.provider "virtualbox" do |test_box|
-      test_box.memory = 2048
-      test_box.cpus = 2
+    config.vm.provider "virtualbox" do |puppet_master|
+      puppet_master.memory = 2048
+      puppet_master.cpus = 2
     end
   end
-  # test_box1 configuration
-  config.vm.define "test_box1" do |test_box1|
-    test_box1.vm.box = "ubuntu/trusty64"
-    test_box1.vm.network "private_network", ip: "192.168.33.11"
-    #test_box1.vm.synced_folder ".", "/vagrant"
-    config.vm.provider "virtualbox" do |test_box1|
-      test_box1.memory = 2048
-      test_box1.cpus = 2
+  # puppet_agent configuration
+  config.vm.define "puppet_agent" do |puppet_agent|
+    puppet_agent.vm.box = "ubuntu/trusty64"
+    puppet_agent.vm.network "private_network", ip: "192.168.33.11"
+    puppet_agent.vm.hostname = "puppet-agent"
+    #puppet_agent.vm.synced_folder ".", "/vagrant"
+    config.vm.provider "virtualbox" do |puppet_agent|
+      puppet_agent.memory = 2048
+      puppet_agent.cpus = 2
     end
   end
-  # Run commission-new-server.yml playbook
-  #config.vm.provision "ansible" do |ansible|
-  #  ansible.verbose = "v"
-  #  ansible.playbook = "commission-new-server.yml"
-  #  ansible.inventory_path = "~/Dropbox/inventory/test-env/hosts"
-  #  ansible.raw_arguments = ["-e 'inventory=test_box1'"]
-  #end
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
