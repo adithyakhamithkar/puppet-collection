@@ -8,7 +8,7 @@ class nginx::install_nginx inherits nginx {
   }
 
 #Update cache
-  exec { "update_cache":
+  exec { "update_cache_nginx":
     command     => "sudo apt-get update",
     provider    => shell,
   }

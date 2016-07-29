@@ -12,7 +12,7 @@ package { 'language-pack-en-base':
   }
 
 #Update cache
-  exec { "update_cache":
+  exec { "update_cache_php":
     command     => "sudo apt-get update",
     provider    => shell,
   }
